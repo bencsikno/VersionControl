@@ -22,6 +22,7 @@ namespace UserMaintenance
             textBox1.Text = Resource1.FullName; 
             
             button1.Text = Resource1.Add;
+            button2.Text = Resource1.SaveFile;
 
 
             listBox1.DataSource = users;
@@ -36,6 +37,11 @@ namespace UserMaintenance
                 FullName = textBox1.Text
             };
             users.Add(u);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog sf = new SaveFileDialog();
         }
     }
 }
