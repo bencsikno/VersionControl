@@ -22,7 +22,12 @@ namespace gyak06
 
         public Form1()
         {
+            RefreshData();
+        }
 
+        private void RefreshData()
+        {
+            
             Rates = new BindingList<RateData>();
             InitializeComponent();
             string result = mnbezes();
@@ -93,6 +98,27 @@ namespace gyak06
             chartArea.AxisX.MajorGrid.Enabled = false;
             chartArea.AxisY.MajorGrid.Enabled = false;
             chartArea.AxisY.IsStartedFromZero = false;
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            Rates.Clear();
+            RefreshData();
+
+        }
+
+        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
+        {
+            Rates.Clear();
+            RefreshData();
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            Rates.Clear(); 
+            RefreshData();
         }
     }
 }
