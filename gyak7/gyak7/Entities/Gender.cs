@@ -40,6 +40,7 @@ namespace gyak7.Entities
 
         public double DeathProbabilities { get; set; }
     }
+   
 
 }
 
