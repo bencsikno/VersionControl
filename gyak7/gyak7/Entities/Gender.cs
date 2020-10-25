@@ -27,7 +27,7 @@ namespace gyak7.Entities
     public class BirthProbability
     {
         public double BirthProbabilities { get; set; }
-        public int BirthYear { get; set; }
+        public int Age { get; set; }
         public int NbrOfChildren { get; set; }
 
 
@@ -35,7 +35,7 @@ namespace gyak7.Entities
     }
     public class DeathProbability
     {
-        public int BirthYear { get; set; }
+        public int Age { get; set; }
         public Gender Gender { get; set; }
 
         public double DeathProbabilities { get; set; }

@@ -14,6 +14,9 @@ namespace gyak7
 {
     public partial class Form1 : Form
     {
+        List<Person> Population = new List<Person>();
+        List<BirthProbability> BirthProbabilities = new List<BirthProbability>();
+        List<DeathProbability> DeathProbabilities = new List<DeathProbability>();
         public Form1()
         {
             InitializeComponent();
@@ -21,6 +24,9 @@ namespace gyak7
             Population = GetPopulation(@"C:\Temp\nép.csv");
             BirthProbabilities = GetBirthProbabilities(@"C:\Temp\születés.csv");
             DeathProbabilities = GetDeathProbabilities(@"C:\Temp\halál.csv");
+
+            dataGridView1.DataSource = Population;
+
 
         }
         public List<Person> GetPopulation(string csvpath)
@@ -54,8 +60,9 @@ namespace gyak7
                     var line = sr.ReadLine().Split(';');
                     deathprobabilities.Add(new DeathProbability()
                     {
-                        BirthYear=int.Parse(line[0]),
-                        Gender = (Gender)Enum.Parse(typeof(Gender), line[1]),
+                        
+                        Gender = (Gender)Enum.Parse(typeof(Gender), line[0]),
+                        Age = int.Parse(line[1]),
                         DeathProbabilities = double.Parse(line[2])
                     });
                     
@@ -71,10 +78,18 @@ namespace gyak7
             {
                 while (!sr.EndOfStream)
                 {
-                    var line sr.ReadLine().Split(';');
-                    birthprobabilities.Add(new BirthProbability)
+                    var line = sr.ReadLine().Split(';');
+                    birthprobabilities.Add(new BirthProbability()
+                    {
+                        
+                        NbrOfChildren = int.Parse(line[0]),
+                        Age = int.Parse(line[1]),
+                        BirthProbabilities = double.Parse(line[2])
+                    });
                 }
+                return birthprobabilities;
             }
+
 
         }
 
