@@ -89,5 +89,10 @@ namespace gyak10
             ga.Focus();
             gc.Start(true);
         }
+
+        private void button1_VisibleChanged(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
